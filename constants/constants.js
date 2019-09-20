@@ -1,0 +1,5 @@
+global.DISCORD = require('discord.js');
+global.FS = require('fs');
+global.Commando = require('discord.js-commando');
+global.PATH = require("path");
+global.SQLITE = require('sqlite');

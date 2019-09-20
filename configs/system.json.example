@@ -1,0 +1,6 @@
+{
+  "owner" : "ownerid",
+  "discord_token" : "discord token",
+  "prefix" : "!",
+  "unknownCommandResponse" : false
+}
