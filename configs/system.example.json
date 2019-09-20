@@ -2,6 +2,6 @@
   "owner" : "ownerid",
   "discord_token" : "discord token",
   "prefix" : "!",
-  "unknownCommandResponse" : false
-  "mpmissions" : "X:\/myfolder\/arma3\/mpmissions\/"  
+  "unknownCommandResponse" : false,
+  "mpmissions" : "X:\/myfolder\/arma3\/mpmissions\/"
 }

@@ -2,7 +2,7 @@ module.exports = class listCommand extends global.Commando.Command {
 	constructor(client) {
 		super(client, {
 			name: 'list',
-			aliases: ['list'],
+			aliases: ['ls'],
 			group: 'admin',
 			memberName: 'list',
 			description: 'List all missions',
@@ -19,13 +19,7 @@ module.exports = class listCommand extends global.Commando.Command {
   async run(msg, args) {
 
     var missions = [];
-
-    const embed = new global.DISCORD.RichEmbed()
-
-    embed.setColor( "#" + ((1 << 24) * Math.random() | 0).toString(16))
-    embed.setTitle("")
-    embed.setURL()
-    embed.setTimestamp()
+    var list = "\n";
 
     global.FS.readdir(global.config.system.mpmissions, async (err, files) => {
       files.forEach(file => {
@@ -40,15 +34,17 @@ module.exports = class listCommand extends global.Commando.Command {
           var rtime = global.DATE.format(mtime, 'DD/MM HH:mm');
           var size = (fileStats.size / 1000000 ).toFixed(3);
 
-          embed.addField("```" + file + "```", ":arrows_clockwise: " + rtime + " :floppy_disk: " + size +"MB  ", false)
-
+          //embed.addField("```" + file + "```", ":arrows_clockwise: " + rtime + " :floppy_disk: " + size +"MB  ", false)
+          list = list + "``" + file + "`` | "+ rtime + " | " + size +"MB\n";
+          missions.push(file);
         };
 
       });
-
-      msg.embed(embed);
+      
+      msg.say(list);
 
     });
+
 
   }
   };
