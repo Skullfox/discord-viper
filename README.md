@@ -25,7 +25,7 @@ https://discordapp.com/oauth2/authorize?client_id=[yourclientID]&scope=bot&permi
   "discord_token" : "discord-token", `discord api token`   
   "prefix" : "!",   
   "unknownCommandResponse" : false,   
-  "mpmissions" : "X:\/myfolder\/arma3\/mpmissions\/", `escaped path`   
+  "mpmissions" : "X:\\/myfolder\\/arma3\\/mpmissions\\/", `escaped path`   
   "nonPBOwarningUpload" : true, `throws an error if not a pbo is dropped`   
   "channelID" : "0000" `channel id in which the bot will watch for uploads`   
 }
