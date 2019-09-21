@@ -15,3 +15,5 @@ currently only tested on windows !!!
 -adjust config/system.json   
 
 -node index.js   
+
+https://discordapp.com/oauth2/authorize?client_id=[yourclientID]&scope=bot&permissions=67632192
