@@ -7,10 +7,8 @@ global.viper.on("ready", () => {
   );
   console.log("---------------------------------------------------");
 
-
-  console.log("Serverlist:")
-  global.viper.user.setPresence({ game: { name: global.config.system.prefix +'help' }, status: 'online' })
-    .then()
+  global.viper.user.setActivity('CTRG Group 15', { type: 'WATCHING',url : "https://github.com/Skullfox/discord-viper" })
+    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
     .catch(console.error);
 
 });

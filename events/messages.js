@@ -11,24 +11,25 @@ global.viper.on("message", message => {
 
     global.RP.get(options)
       .then(function (res) {
-        console.log(message);
-        message.channel.send("-> Requesting: " + attachment.filename);
+
+        message.channel.send(":white_check_mark: Requesting: " + global.utils.strHighlight(attachment.filename) );
         const buffer = Buffer.from(res, 'utf8');
         global.FS.writeFileSync(global._root + "/temp/" + attachment.filename, buffer);
-        message.channel.send("-> Downloaded: " + attachment.filename);
+        message.channel.send(":white_check_mark: Downloaded: " + global.utils.strHighlight(attachment.filename) );
         global.FS.copyFile(global._root + "/temp/" + attachment.filename,global.config.system.mpmissions + attachment.filename , (err) => {
           if (err) {
             message.channel.send(err.toString());
           }else{
 
-            message.channel.send("-> ``" + attachment.filename + "`` moved to ``" + global.config.system.mpmissions + "``");
+            message.channel.send(":white_check_mark: " + global.utils.strHighlight(attachment.filename) + " moved to " + global.utils.strHighlight(global.config.system.mpmissions) );
 
             global.FS.unlink(global._root + "/temp/" + attachment.filename, (err) => {
               if (err) {
                 console.error(err)
                 message.channel.send( err.toString() );
               }else{
-                message.channel.send("-> ``" + attachment.filename + "`` temp file deleted");
+                message.channel.send(":white_check_mark: " + global.utils.strHighlight( attachment.filename ) + " temp file deleted");
+                message.channel.send(":white_check_mark: " + "Done :ok_hand:");
               };
             })
 

@@ -34,17 +34,30 @@ module.exports = class removeCommand extends global.Commando.Command {
         return new Promise((resolve) => true)
       };
 
-      global.FS.unlink(global.config.system.mpmissions + pbo, (err) => {
-        if (err) {
+
+			global.FS.rename(global.config.system.mpmissions + pbo, global.config.system.mpmissions + pbo + ".old", (err) => {
+				if (err) {
           console.error(err)
           msg.reply( err.toString() );
-        }else{
-          msg.reply("``" + pbo + "`` was deleted");
-        };
-      })
+					msg.reply( global.utils.strHighlight( pbo ) + " cannot be deleted, maybe its locked by ArmA");
+				}else{
+
+					global.FS.unlink(global.config.system.mpmissions + pbo + ".old", (err) => {
+						if (err) {
+							console.error(err)
+							msg.reply( err.toString() );
+						}else{
+							msg.reply(global.utils.strHighlight( pbo ) + " was deleted");
+						};
+					})
+
+				};
+			});
+
+
 
     }else{
-      msg.reply(pbo + " dont exist in ``" + global.config.system.mpmissions + "``");
+      msg.reply(global.utils.strHighlight( pbo ) + " dont exist in ``" + global.config.system.mpmissions + "``");
     };
   }
 };

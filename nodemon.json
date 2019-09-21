@@ -1,0 +1,6 @@
+{
+  "ignore": [
+    "*.pbo"
+  ],
+    "ext": "js,json"
+}

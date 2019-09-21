@@ -5,6 +5,7 @@ global._root = __dirname;
 global.config = {};
 global.utils = {};
 global.TEMP = {};
+global.GHLINK = "https://github.com/Skullfox/discord-viper";
 
 for (let file of global.FS.readdirSync(
   global.PATH.join(__dirname, 'configs')
