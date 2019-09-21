@@ -12,7 +12,6 @@ module.exports = class listCommand extends global.Commando.Command {
 	}
 
   hasPermission(msg) {
-    if (!this.client.isOwner(msg.author)) return 'Only the bot owner(s) may use this command.';
     return true;
   }
 

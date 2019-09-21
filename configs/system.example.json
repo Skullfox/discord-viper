@@ -1,7 +1,9 @@
 {
   "owner" : "ownerid",
-  "discord_token" : "discord token",
+  "discord_token" : "discord-token",
   "prefix" : "!",
   "unknownCommandResponse" : false,
-  "mpmissions" : "X:\/myfolder\/arma3\/mpmissions\/"
+  "mpmissions" : "X:\/myfolder\/arma3\/mpmissions\/",
+  "nonPBOwarningUpload" : true,
+  "channelID" : "0000"
 }

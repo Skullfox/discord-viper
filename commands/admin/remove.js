@@ -19,8 +19,11 @@ module.exports = class removeCommand extends global.Commando.Command {
 	}
 
   hasPermission(msg) {
-    if (!this.client.isOwner(msg.author)) return 'Only the bot owner(s) may use this command.';
-    return true;
+		if( this.client.isOwner(msg.author) || global.utils.hasRole(msg,global.config.roles.admin) ){
+			return true
+		}else{
+			return false
+		}
   }
 
   async run(msg,{pbo}) {
