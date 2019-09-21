@@ -6,14 +6,13 @@ global.viper.on("message", message => {
     if( global.utils.hasRole(message,global.config.roles.admin) ||  global.utils.hasRole(message,global.config.roles.upload) || global.utils.isOwner(message.channel.guild,message.author) ){
 
       message.attachments.forEach(function(attachment,id) {
-        console.log(attachment.filename);
 
         if( attachment.filename.substr(attachment.filename.lastIndexOf('.') + 1 ) != 'pbo'){
           if(global.config.system.nonPBOwarningUpload){
             message.reply(":warning: You can only upload PBOs with Viper, upload was ignored");
           }
           return false;
-        };
+        }
 
         const options = {
           url: attachment.url,
@@ -41,7 +40,7 @@ global.viper.on("message", message => {
                   }else{
                     message.channel.send(":white_check_mark: " + global.utils.strHighlight( attachment.filename ) + " temp file deleted");
                     message.channel.send(":white_check_mark: " + "Done :ok_hand:");
-                  };
+                  }
                 })
 
               }
@@ -51,6 +50,6 @@ global.viper.on("message", message => {
 
       });
 
-    };
-  };
+    }
+  }
 });

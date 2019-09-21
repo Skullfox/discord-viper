@@ -15,7 +15,7 @@ module.exports = class listCommand extends global.Commando.Command {
     return true;
   }
 
-  async run(msg, args) {
+  async run(msg) {
 
     var missions = [];
     var list = "\n";
@@ -36,7 +36,7 @@ module.exports = class listCommand extends global.Commando.Command {
           //embed.addField("```" + file + "```", ":arrows_clockwise: " + rtime + " :floppy_disk: " + size +"MB  ", false)
           list = list + "``" + file + "`` | "+ rtime + " | " + size +"MB\n";
           missions.push(file);
-        };
+        }
 
       });
 
