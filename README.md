@@ -1,4 +1,5 @@
 
+
 # discord-viper
 
 ![alt text](https://i.imgur.com/d22Y3sI.png"Logo")
@@ -16,6 +17,19 @@ ArmA 3 Discord Bot for managing mission files
  4. start via `node index.js`
 
 https://discordapp.com/oauth2/authorize?client_id=[yourclientID]&scope=bot&permissions=67632192
+
+## Config
+
+{
+  "owner" : "ownerid", `id of the serverowner`
+  "discord_token" : "discord-token", `discord api token`
+  "prefix" : "!",
+  "unknownCommandResponse" : false,
+  "mpmissions" : "X:\/myfolder\/arma3\/mpmissions\/", `escaped path`
+  "nonPBOwarningUpload" : true, `throws an error if not a pbo is dropped`
+  "channelID" : "0000" `channel id in which the bot will watch for uploads`
+}
+
 
 ## Roles
 Create the following roles on your server:
