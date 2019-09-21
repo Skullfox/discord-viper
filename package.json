@@ -1586,5 +1586,8 @@
       "resolved": "https://registry.npmjs.org/yauzl/-/yauzl-2.10.0.tgz",
       "version": "2.10.0"
     }
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0"
   }
 }

@@ -35,7 +35,7 @@ module.exports = class removeCommand extends global.Commando.Command {
       if(ext != ".pbo"){
         msg.reply("only .pbo can be deleted");
         return new Promise((resolve) => true)
-      };
+      }
 
 
 			global.FS.rename(global.config.system.mpmissions + pbo, global.config.system.mpmissions + pbo + ".old", (err) => {
@@ -51,16 +51,16 @@ module.exports = class removeCommand extends global.Commando.Command {
 							msg.reply( err.toString() );
 						}else{
 							msg.reply(global.utils.strHighlight( pbo ) + " was deleted");
-						};
+						}
 					})
 
-				};
+				}
 			});
 
 
 
     }else{
       msg.reply(global.utils.strHighlight( pbo ) + " dont exist in ``" + global.config.system.mpmissions + "``");
-    };
+    }
   }
 };

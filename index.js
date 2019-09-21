@@ -16,7 +16,7 @@ for (let file of global.FS.readdirSync(
     file
   ));
 }
-console.log(global.config);
+
 for (let file of global.FS.readdirSync(global.PATH.join(__dirname, "utils"))) {
   global.utils[file.replace(".js", "")] = require(global.PATH.join(
     __dirname,
