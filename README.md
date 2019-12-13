@@ -7,7 +7,10 @@
 ArmA 3 Discord Bot for managing mission files
 
 ##
-**currently only tested on windows !!!**
+**Tested:**
+Windows 10   
+OSX Mojave   
+
 ##
 # Install
 
