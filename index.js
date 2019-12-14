@@ -1,21 +1,13 @@
 require("./constants/constants.js");
 
+global._env = require('dotenv').config()
+
 global._configs = global.PATH.join(__dirname, 'configs');
 global._root = __dirname;
 global.config = {};
 global.utils = {};
 global.TEMP = {};
 global.GHLINK = "https://github.com/Skullfox/discord-viper";
-
-for (let file of global.FS.readdirSync(
-  global.PATH.join(__dirname, 'configs')
-)) {
-  global.config[file.replace('.json', '')] = require(global.PATH.join(
-    __dirname,
-    'configs',
-    file
-  ));
-}
 
 for (let file of global.FS.readdirSync(global.PATH.join(__dirname, "utils"))) {
   global.utils[file.replace(".js", "")] = require(global.PATH.join(
@@ -26,11 +18,10 @@ for (let file of global.FS.readdirSync(global.PATH.join(__dirname, "utils"))) {
 }
 
 global.viper = new Commando.Client({
-    owner: global.config.system.owner,
-    commandPrefix : global.config.system.prefix,
-    unknownCommandResponse: global.config.system.unknownCommandResponse
+    owner: global.utils.getEnv("owner"),
+    commandPrefix : global.utils.getEnv("prefix"),
+    unknownCommandResponse: global.utils.getEnv("unknownCommandResponse")
 });
-
 
 global.viper.registry
     // Registers your custom command groups
@@ -70,4 +61,5 @@ global.viper.on('reconnecting', () => {
     console.log('reconnecting');
 });
 
-global.viper.login(global.config.system.discord_token);
+global.utils.parsePath();
+global.viper.login(global.utils.getEnv("discord_token"));
