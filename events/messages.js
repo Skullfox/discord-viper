@@ -1,6 +1,5 @@
 global.viper.on("message", message => {
 
-
   if( global.utils.getEnv("channelID") == message.channel.id ){
 
     if( global.utils.hasRole(message,global.utils.getEnv("roleAdmin")) ||  global.utils.hasRole(message,global.utils.getEnv("roleUpload")) || global.utils.isOwner(message.channel.guild,message.author) ){
