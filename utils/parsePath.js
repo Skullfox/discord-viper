@@ -3,18 +3,10 @@
  */
 function parsePath() {
 
-  var opsys = global.OS.platform;
-  if (opsys == "darwin") {
-      opsys = "MacOS";
-  } else if (opsys == "win32" || opsys == "win64") {
-      opsys = "Windows";
-  } else if (opsys == "linux") {
-      opsys = "Linux";
-  }
-  console.log(opsys)
+  var path = global.UPATH.normalize(global.utils.getEnv("uploadFolder"))
 
-  global.config.system.mpmissions
-
+  global._uploadFolder =  path.slice(-1) == "/" ? path : global.PATH.join(path,global.PATH.sep);
+  console.log(global._uploadFolder);
 }
 
 module.exports = parsePath;

@@ -7,3 +7,4 @@ global.DATE = require('date-and-time');
 global.R = require('request');
 global.RP = require('request-promise');
 global.OS = require('os');
+global.UPATH = require('upath');

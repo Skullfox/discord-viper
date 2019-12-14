@@ -25,10 +25,10 @@ https://discordapp.com/oauth2/authorize?client_id=[yourclientID]&scope=bot&permi
 
 owner=`id of the serverowner`   
 discord_token=`discord api token`   
-prefix=!!
-unknownCommandResponse=false
-mpmissions=`upload folder path`
-nonPBOwarningUpload=true
+prefix=!!   
+unknownCommandResponse=false   
+mpmissions=`upload folder path`   
+nonPBOwarningUpload=true   
 channelID=`channel id in which the bot will "watch" for uploads`  
 
 roleAdmin=viper-admin   

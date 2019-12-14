@@ -28,24 +28,24 @@ module.exports = class removeCommand extends global.Commando.Command {
 
   async run(msg,{pbo}) {
 
-    if (global.FS.existsSync(global.config.system.mpmissions + pbo)) {
+    if (global.FS.existsSync(global._uploadFolder + pbo)) {
       console.log('The file exists.');
 
-      var ext = global.PATH.extname(global.config.system.mpmissions + pbo);
+      var ext = global.PATH.extname(global._uploadFolder + pbo);
       if(ext != ".pbo"){
         msg.reply("only .pbo can be deleted");
         return new Promise((resolve) => true)
       }
 
 
-			global.FS.rename(global.config.system.mpmissions + pbo, global.config.system.mpmissions + pbo + ".old", (err) => {
+			global.FS.rename(global._uploadFolder + pbo, global._uploadFolder + pbo + ".old", (err) => {
 				if (err) {
           console.error(err)
           msg.reply( err.toString() );
 					msg.reply( global.utils.strHighlight( pbo ) + " cannot be deleted, maybe its locked by ArmA");
 				}else{
 
-					global.FS.unlink(global.config.system.mpmissions + pbo + ".old", (err) => {
+					global.FS.unlink(global._uploadFolder + pbo + ".old", (err) => {
 						if (err) {
 							console.error(err)
 							msg.reply( err.toString() );
@@ -56,11 +56,8 @@ module.exports = class removeCommand extends global.Commando.Command {
 
 				}
 			});
-
-
-
     }else{
-      msg.reply(global.utils.strHighlight( pbo ) + " dont exist in ``" + global.config.system.mpmissions + "``");
+      msg.reply(global.utils.strHighlight( pbo ) + " dont exist in ``" + global._uploadFolder + "``");
     }
   }
 };

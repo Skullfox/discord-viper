@@ -20,14 +20,14 @@ module.exports = class listCommand extends global.Commando.Command {
     var missions = [];
     var list = "\n";
 
-    global.FS.readdir(global.config.system.mpmissions, async (err, files) => {
+    global.FS.readdir(global._uploadFolder, async (err, files) => {
       files.forEach(file => {
 
         var ext = global.PATH.extname(file);
 
         if(ext == ".pbo"){
 
-          var fileStats = global.FS.statSync(global.config.system.mpmissions + file);
+          var fileStats = global.FS.statSync(global._uploadFolder + file);
 
           var mtime = new Date(fileStats.mtime);
           var rtime = global.DATE.format(mtime, 'DD/MM HH:mm');

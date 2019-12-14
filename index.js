@@ -4,10 +4,11 @@ global._env = require('dotenv').config()
 
 global._configs = global.PATH.join(__dirname, 'configs');
 global._root = __dirname;
-global.config = {};
+global._tempUploadFolder = global.PATH.join(__dirname, 'temp',global.PATH.sep);
 global.utils = {};
 global.TEMP = {};
 global.GHLINK = "https://github.com/Skullfox/discord-viper";
+
 
 for (let file of global.FS.readdirSync(global.PATH.join(__dirname, "utils"))) {
   global.utils[file.replace(".js", "")] = require(global.PATH.join(
@@ -16,6 +17,8 @@ for (let file of global.FS.readdirSync(global.PATH.join(__dirname, "utils"))) {
     file
   ));
 }
+
+global.utils.parsePath();
 
 global.viper = new Commando.Client({
     owner: global.utils.getEnv("owner"),
@@ -31,9 +34,9 @@ global.viper.registry
     .registerDefaults()
     .registerCommandsIn(global.PATH.join(__dirname, 'commands'));
 
-global.viper.setProvider(
-    global.SQLITE.open(global.PATH.join(__dirname, 'settings.sqlite3')).then(db => new global.Commando.SQLiteProvider(db))
-).catch(console.error);
+// global.viper.setProvider(
+//     global.SQLITE.open(global.PATH.join(__dirname, 'settings.sqlite3')).then(db => new global.Commando.SQLiteProvider(db))
+// ).catch(console.error);
 
 
 for (const file of global.FS.readdirSync(
@@ -61,5 +64,4 @@ global.viper.on('reconnecting', () => {
     console.log('reconnecting');
 });
 
-global.utils.parsePath();
 global.viper.login(global.utils.getEnv("discord_token"));
