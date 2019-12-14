@@ -7,7 +7,7 @@
 ArmA 3 Discord Bot for managing mission files
 
 ##
-**Tested:**
+**Tested:**   
 Windows 10   
 OSX Mojave   
 
@@ -16,31 +16,27 @@ OSX Mojave
 
  1. clone repo    
  2. npm install    
- 3. adjust `config/system.example.json` and rename it to **system.json**
+ 3. adjust `.env.example` and rename it to `.env`
  4. start via `node index.js`
 
 https://discordapp.com/oauth2/authorize?client_id=[yourclientID]&scope=bot&permissions=67632192
 
-## Config
+## .env
 
-{
-  "owner" : "ownerid", `id of the serverowner`   
-  "discord_token" : "discord-token", `discord api token`   
-  "prefix" : "!",   
-  "unknownCommandResponse" : false,   
-  "mpmissions" : "X:\\/myfolder\\/arma3\\/mpmissions\\/", `escaped path`   
-  "nonPBOwarningUpload" : true, `throws an error if not a pbo is dropped`   
-  "channelID" : "0000" `channel id in which the bot will watch for uploads`   
-}
+owner=`id of the serverowner`   
+discord_token=`discord api token`   
+prefix=!!
+unknownCommandResponse=false
+mpmissions=`upload folder path`
+nonPBOwarningUpload=true
+channelID=`channel id in which the bot will "watch" for uploads`  
+
+roleAdmin=viper-admin   
+roleUpload=viper-upload
 
 
 ## Roles
-Create the following roles on your server:
-Default:
- - viper-admin
- - viper-uploader
-
-**Do not change these in the roles.json !!! except u know what u doing**
+Create the roles in your server based on the .env file.   
 
 ## Commands
 *[Default prefix]*
@@ -50,7 +46,7 @@ Default:
  - `!ls | !list` list all pbo`s
 
 ## Upload
-If the settings are correct, users with the role **viper-admin** & **viper-uploader** can drop a pbo in the assigned channel and the upload will start.
+Users with the defined roles from the .env ** can now drop a pbo in the assigned channel and the upload will start.
 
 ## Notes
 If ArmA is accessing a pbo during runtime you **CANNOT** *delete* or *overwrite* it, you need to close ArmA.
