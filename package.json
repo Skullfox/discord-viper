@@ -454,6 +454,7 @@
     },
     "discord.js": "^11.5.1",
     "discord.js-commando": "^0.10.0",
+    "dotenv": "^8.2.0",
     "duplexer3": {
       "integrity": "sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=",
       "resolved": "https://registry.npmjs.org/duplexer3/-/duplexer3-0.1.4.tgz",
@@ -1588,6 +1589,7 @@
     }
   },
   "devDependencies": {
-    "eslint": "^6.4.0"
+    "eslint": "^6.4.0",
+    "nodemon": "^2.0.2"
   }
 }

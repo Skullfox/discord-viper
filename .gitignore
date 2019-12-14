@@ -1,4 +1,4 @@
-configs/system.json
+.env
 settings.sqlite3
 
 # Logs
