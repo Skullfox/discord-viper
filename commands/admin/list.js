@@ -40,7 +40,7 @@ module.exports = class listCommand extends global.Commando.Command {
 
       });
 
-      msg.say(list);
+      msg.say(list, { split: true });
 
     });
 
