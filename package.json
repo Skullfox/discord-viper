@@ -303,7 +303,7 @@
       "resolved": "https://registry.npmjs.org/dashdash/-/dashdash-1.14.1.tgz",
       "version": "1.14.1"
     },
-    "date-and-time": "^0.10.0",
+    "date-and-time": "^0.14.2",
     "debug": {
       "integrity": "sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==",
       "requires": {
